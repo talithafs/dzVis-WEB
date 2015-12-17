@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="main.css">
+	
+    <!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+  	
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <script>
+    	$(document).ready(function(){
+    		var vPressed, mPressed = false;
+			var data, graphArea, tree, details = undefined;
+			var dataX, treeY, dataWidth, pAreaWidth, treeHeight, detailsHeight;
+			var onLeftBorder, onMiddleBorder = false;
+			
+			$("#data").mousemove(function(e){
+				/*e.offsetX < border_width - borda esquerda
+    			 *e.offsetX > $(this).innerWidth() - borda direita
+    			 *e.offsetY < border_width - borda superior
+    			 *e.offsetY > $(this).innerHeight() - borda inferior */
+    			
+    			if(e.offsetX > $(this).innerWidth()){
+        			$(this).addClass("onVerticalBorder");
+        			onLeftBorder = true; 
+    			}
+    			else{
+    				$(this).removeClass("onVerticalBorder");
+    				onLeftBorder = false ;
+    			}
+			});
+			
+			$("#tree").mousemove(function(e){
+				var borderWidth = parseInt($(this).css('border-width'));
+				
+				if(e.offsetY > $(this).innerHeight()){
+					$(this).addClass("onHorizontalBorder");
+        			onMiddleBorder = true; 
+				}
+				else{
+					$(this).removeClass("onHorizontalBorder");
+    				onMiddleBorder = false ;
+				}
+			});
+
+			$("#data").mousedown(function(e) {
+				
+				if(onLeftBorder){
+					data = $(this) ;
+					graphArea = $("#graphingArea");
+					vPressed = true;
+					dataX = e.pageX;
+					dataWidth = data.width();
+					pAreaWidth = graphArea.width();
+					data.addClass("noSelection");
+				}
+			});
+			
+			$("#tree").mousedown(function(e) {
+				
+				if(onMiddleBorder){
+					tree = $(this) ;
+					details = $("#details");
+					mPressed = true;
+					treeY = e.pageY;
+					treeHeight = tree.height();
+					detailsHeight = details.height();
+					tree.addClass("noSelection");
+					detais.addClass("noSelection");
+				}
+			});
+
+			$(document).mousemove(function(e) {
+				if(vPressed) {
+					data.width(dataWidth+(e.pageX-dataX));
+					graphArea.width(pAreaWidth - (e.pageX-dataX));
+				}
+				if(mPressed){
+					tree.height(treeHeight+(e.pageY-treeY));
+					details.height(detailsHeight - (e.pageY-treeY));
+				}
+			});
+
+			$(document).mouseup(function() {
+				if(vPressed) {
+					data.removeClass("noSelection");
+					vPressed = false;
+				}
+				if(mPressed){
+					tree.removeClass("noSelection");
+					details.removeClass("noSelection");
+					mPressed = false ;
+				}
+    		});
+    	});
+    </script>
+</head>
+<body>
+	
+	<div class="container wrapper">
+		<div class="row">
+			<div class="col-sm-3 col-md-3" id="data">
+				<div class="row col-sm-12 col-md-12" id="tree">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc </p>
+				</div>
+				<div class="row col-sm-12 col-md-12" id="details">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc </p>
+				</div> 
+			</div>
+			<div class="col-sm-9 col-md-9 panel" id="graphingArea"> 
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nun </p> 
+			</div>
+		</div>
+		
+	</div>
+	
+</body>
+</html>
