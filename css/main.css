@@ -1,6 +1,5 @@
 body {
-	padding 0.2%;
-	background-color: gray;
+	background-color: rgba(128, 128, 128, 0.73);
 	margin: 0 ;
 }
 
@@ -8,7 +7,7 @@ body {
 	position: fixed ;
     width: 99.8vw ;
     height: 99.8vh;
-    border: solid 2px gray;
+    border: solid 2px rgba(128, 128, 128, 0.73);
     margin: 0%;
     padding: 0%;
 }
@@ -16,8 +15,8 @@ body {
 #data {
 	width: 29.8vw;
 	padding-right: 0;
-	border-right: solid 8px gray ;
-	background-color: white;
+	border-right: solid 8px rgba(128, 128, 128, 0.73) ;
+	background-color: #F1F1F1;
 }
 
 .panel {
@@ -27,31 +26,94 @@ body {
 	width: 70vw;
 }
 
-#tree {
-	height: 70vh;
-	overflow-y: auto;
-	margin: 0; 
-	padding: 0;
- 	border-bottom: solid 4px gray ;
-}
 
 #details {
 	height: 29vh;
 	overflow-y: auto;
 	margin: 0; 
 	padding: 0;
+	border-top: solid 4px rgba(128, 128, 128, 0.73) ;
 }
 
-.onVerticalBorder {
-	cursor: col-resize;
+.header {
+	background-image: url("../img/header.jpg");
+	height: 39px;
 }
 
-.onHorizontalBorder {
-	cursor: row-resize;
+.header p {
+	position: absolute ;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+	color: #fff ;
+	font-size: 15px;
+	margin-top: 5.7px ;
+	margin-left: 5.5px ;
+	display: inline ;
+	background-color: #34689A ;
+}
+
+.tree-panel{
+	height: 64vh;
+	overflow-y: auto;
+	margin: 0; 
+	padding: 0;
+	/*border-bottom: solid 4px gray ;*/
+}
+
+.tree-search {
+	background: #beebff;
+  	background: -webkit-linear-gradient(top, #beebff 0%, #add8e6 100%);
+  	background: linear-gradient(to bottom, #beebff 0%, #add8e6 100%);
+}
+
+#search-box {
+	height: 10vh ;
+	text-align: left ;
+	display: none ;
+	max-height: 10vh; 
+	border-bottom: solid 2px #34689A ;
 }
 
 
-.noSelection {
+#pull-search {
+	display: inline-block ;
+	border-bottom: solid 2px #34689A  ;
+	border-radius: 0 0 8px 8px ;
+	height: 4vh ;
+	float: right ;
+	cursor: pointer ;
+	background: inherit ;
+	margin-bottom: 10px ;
+}
+
+#pull-search p {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+	font-size: 14px;
+	color: #fff ;
+	padding-right: 10px ;
+}
+
+#pull-search p, img {
+	display: inline-block ;
+}
+
+#search-field {
+	width: 20vw;
+	margin-top: 1vh;
+	margin-left: 3vw;
+}
+
+
+
+.on-vertical-border {
+	cursor: ew-resize;
+}
+
+.on-horizontal-border {
+	cursor: ns-resize;
+}
+
+
+.no-selection {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
