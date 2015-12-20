@@ -39,3 +39,9 @@
   background: -webkit-linear-gradient(top, rgba(52,104,154,0.58) 0%, rgba(52,104,154,0.45) 100%);
   background: linear-gradient(to bottom, rgba(52,104,154,0.58) 0%, rgba(52,104,154,0.45) 100%);
 }
+
+.jstree-default .jstree-search {
+  font-style: italic;
+  color: #F54848;
+  font-weight: 800;
+}

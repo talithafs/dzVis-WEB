@@ -99,10 +99,14 @@ body {
 #search-field {
 	width: 20vw;
 	margin-top: 1vh;
-	margin-left: 3vw;
+	margin-left: 1vw;
 }
 
-
+#tree {
+	text-transform: uppercase ;
+	font-size: 13px;
+	font-weight: 600 ;
+}
 
 .on-vertical-border {
 	cursor: ew-resize;
