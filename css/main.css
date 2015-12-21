@@ -53,10 +53,16 @@ body {
 
 .tree-panel{
 	height: 64vh;
-	overflow-y: auto;
+	overflow-y: hidden ;
 	margin: 0; 
 	padding: 0;
 	/*border-bottom: solid 4px gray ;*/
+}
+
+.scrollable-tree {
+	width: inherit ;
+	height: 64vh ;
+	overflow-y: auto ;
 }
 
 .tree-search {
