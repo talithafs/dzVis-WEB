@@ -1,7 +1,7 @@
 $('#tree').jstree({
   "core" : {
     'data' : {
-			"url" : "data/root.json",
+			"url" : "../data/menu.json",
 			"dataType" : "json" // needed only if you do not supply JSON headers
 	 } 
   },
