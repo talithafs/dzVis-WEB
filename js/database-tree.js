@@ -38,7 +38,7 @@ var open = false ;
 
 $("#pull-search").click(function(){
 	var sHeight = $("#search-box").outerHeight();
-	var tPadding = parseInt($("tree").css("padding-top"));
+	var tHeight = $("#tree").innerHeight();
 	
 	open = !open ;
 	
@@ -50,11 +50,8 @@ $("#pull-search").click(function(){
 		$("#pull-down").attr('src','../img/arrow-down-small.png');
 	}
 	
-	$("#search-box").slideToggle({duration: 'slow', step: function(){
-      
-      $(".tree-panel").css({'padding-top': tPadding - sHeight}) ;
-      
-	}});
+	$("#search-box").slideToggle({duration: 'slow', queue: false});
+	$("#tree").animate({height: tHeight + sHeight, queue: false});
 });
 
 

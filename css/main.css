@@ -7,7 +7,6 @@ body {
 	position: fixed ;
     width: 99.8vw ;
     height: 99.8vh;
-    border: solid 2px rgba(128, 128, 128, 0.73);
     margin: 0%;
     padding: 0%;
 }
@@ -53,17 +52,12 @@ body {
 
 .tree-panel{
 	height: 64vh;
-	overflow-y: hidden ;
+	/*overflow-y: auto;*/
 	margin: 0; 
 	padding: 0;
 	/*border-bottom: solid 4px gray ;*/
 }
 
-.scrollable-tree {
-	width: inherit ;
-	height: 64vh ;
-	overflow-y: auto ;
-}
 
 .tree-search {
 	background: #beebff;
@@ -112,6 +106,9 @@ body {
 	text-transform: uppercase ;
 	font-size: 13px;
 	font-weight: 600 ;
+	overflow-y: auto ;
+	width: inherit ;
+	height: 58vh ;
 }
 
 .on-vertical-border {
