@@ -1,8 +1,7 @@
 var vPressed, mPressed = false;
-var data, graphArea, tree, details, treePanel = undefined;
-var dataX, treeY, dataWidth, pAreaWidth, treeHeight, treePanelHeight, detailsHeight;
+var data, graphArea, tree, details, treePanel, detailsField = undefined;
+var dataX, treeY, dataWidth, pAreaWidth, treeHeight, treePanelHeight, detailsFieldHeight, detailsHeight;
 var onLeftBorder, onMiddleBorder = false;
-
 
 $("#data").mousemove(function(e){
 	/*e.offsetX < border_width - borda esquerda
@@ -21,7 +20,7 @@ $("#data").mousemove(function(e){
 });
 
 $("#details").mousemove(function(e){
-	var borderWidth = parseInt($(this).css('border-width'));
+	var borderWidth = parseInt($(this).css('border-top-width'));
 	
 	if(e.offsetY < borderWidth){
 		$(this).addClass("on-horizontal-border");
@@ -53,8 +52,10 @@ $("#details").mousedown(function(e) {
 		tree = $('#tree') ;
 		treePanel = $(".tree-panel");
 		details = $("#details");
+		detailsField = $("#details-field");
 		mPressed = true;
 		treeY = e.pageY;
+		detailsFieldHeight = detailsField.height();
 		treeHeight = tree.height();
 		treePanelHeight = treePanel.height();
 		detailsHeight = details.height();
@@ -72,6 +73,7 @@ $(document).mousemove(function(e) {
 		tree.height(treeHeight + (e.pageY-treeY));
 		treePanel.height(treePanelHeight + (e.pageY-treeY));
 		details.height(detailsHeight - (e.pageY-treeY));
+		detailsField.height(detailsFieldHeight - (e.pageY-treeY));
 	}
 });
 
@@ -86,4 +88,24 @@ $(document).mouseup(function() {
 		details.removeClass("no-selection");
 		mPressed = false ;
 	}
+});
+
+var open = false ;
+
+$("#pull-search").click(function(){
+	var sHeight = $("#search-box").outerHeight();
+	var tHeight = $("#tree").innerHeight();
+	
+	open = !open ;
+	
+	if(open){
+		sHeight = -sHeight ;
+		$("#pull-down").attr('src','../img/arrow-up-small.png');
+	}
+	else {
+		$("#pull-down").attr('src','../img/arrow-down-small.png');
+	}
+	
+	$("#search-box").slideToggle({duration: 'slow', queue: false});
+	$("#tree").animate({height: tHeight + sHeight, queue: false});
 });

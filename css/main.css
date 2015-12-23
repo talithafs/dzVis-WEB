@@ -28,10 +28,39 @@ body {
 
 #details {
 	height: 29vh;
-	overflow-y: auto;
 	margin: 0; 
 	padding: 0;
 	border-top: solid 4px rgba(128, 128, 128, 0.73) ;
+}
+
+#details-field {
+	padding: 0 8px 0 8px ;
+	overflow-y: auto ;
+	height: 23vh ;
+}
+
+#details-field h1 {
+	font-size: 16px ;
+	text-transform: uppercase ;
+	font-weight: bold ;
+}
+
+#details-field h2 {
+	font-size: 14px ;
+	font-weight: bold ;
+}
+
+#details-field p {
+	font-size: 12px ;
+	display: inline-block ;
+	margin-bottom: 2px ;
+	padding: 0 ;
+}
+
+#details-field #view-data {
+	color: blue ;
+	text-decoration: underline;
+	float: right ; 
 }
 
 .header {
@@ -52,10 +81,8 @@ body {
 
 .tree-panel{
 	height: 64vh;
-	/*overflow-y: auto;*/
 	margin: 0; 
 	padding: 0;
-	/*border-bottom: solid 4px gray ;*/
 }
 
 

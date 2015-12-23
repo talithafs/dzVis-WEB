@@ -1,5 +1,5 @@
 [ {
-  "id": "pea_idade", "text": "pea idade", "children": [
+  "id": "pea_idade", "text": "pea idade", "description": "População economicamente ativa classificada por grupos de idade", "children": [
     {
       "id": "pea_idade.tipo_area",
       "type": "attr",
@@ -121,7 +121,7 @@
   ]
 },
 {
-  "id": "pea_sexo", "text": "pea sexo", "children": [
+  "id": "pea_sexo", "text": "pea sexo", "description": "População economicamente ativa classificada por sexo", "children": [
     {
       "id": "pea_sexo.tipo_area",
       "type": "attr",
