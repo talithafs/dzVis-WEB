@@ -14,7 +14,7 @@ $('#search-field').keyup(function () {
 });
 
 
-$.getJSON('../data/menu.json', function(data) {
+$.getJSON('data/menu.json', function(data) {
 	
 	var wholeTree = data ;
 	var currentAttr, currentTable = undefined ;
@@ -29,11 +29,11 @@ $.getJSON('../data/menu.json', function(data) {
 	  },
 	  "types" : {
 	    "attr" : {
-	      "icon" : "../img/attr.png",
+	      "icon" : "img/attr.png",
 	      "valid_children" : ["lvl"]
 	    },
 	    "lvl" : {
-	      "icon" : "../img/level.png",
+	      "icon" : "img/level.png",
 	      "valid_children" : []
 	    }
 	  },
@@ -131,6 +131,25 @@ function findTable(node, tree){
 	
 	return found[0] ;
 }
+
+
+$("#graphingArea").on("click", function() {
+	
+	alert("oie");
+	
+	var req = ocpu.rpc("hello", {
+          myname : "Talitha"
+        }, function(output){
+           alert(output);
+        });
+        
+        //if R returns an error, alert the error message
+        req.fail(function(){
+          alert("Server error: " + req.responseText);
+        });
+        
+	
+});
 
 
 

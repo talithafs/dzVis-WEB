@@ -100,10 +100,10 @@ $("#pull-search").click(function(){
 	
 	if(open){
 		sHeight = -sHeight ;
-		$("#pull-down").attr('src','../img/arrow-up-small.png');
+		$("#pull-down").attr('src','img/arrow-up-small.png');
 	}
 	else {
-		$("#pull-down").attr('src','../img/arrow-down-small.png');
+		$("#pull-down").attr('src','img/arrow-down-small.png');
 	}
 	
 	$("#search-box").slideToggle({duration: 'slow', queue: false});
